@@ -1,0 +1,376 @@
+Lab 1: REST APIs
+Multiple Choice:
+
+What HTTP port is used by the RESTful API server in Lab 1?
+a) 443
+b) 80
+c) 8080
+d) 22
+Answer: b) 80
+
+Which endpoint is used to toggle the LED ON in the lab?
+a) /led/0
+b) /led/1
+c) /buzzer/1
+d) /toggle
+Answer: b) /led/1
+
+What library is used to create the web server on the MSStickC Plus?
+a) WiFiClient
+b) WebServer
+c) HTTPClient
+d) ESPAsyncWebServer
+Answer: b) WebServer
+
+True/False:
+4. The REST API in Lab 1 uses WebSockets for real-time communication.
+Answer: False
+
+The handle_Root function sends a JSON response containing sensor data.
+Answer: True
+
+Short Answer:
+6. What is the purpose of the server.on("/temp", handle_Temp) line in the code?
+Answer: It associates the /temp endpoint with the handle_Temp function to return temperature data.
+
+Why is WiFi.begin(ssid, password) used in the setup?
+Answer: To connect the MSStickC Plus to the specified WiFi network.
+
+What HTTP status code is sent for an undefined endpoint (404 error)?
+Answer: 404 (via server.send(404, "text/plain", "Not found"))
+
+Which sensor provides pitch, roll, and yaw data in Lab 1?
+Answer: IMU (Inertial Measurement Unit)
+
+What is the purpose of M5.Lcd.print("IP:") in the code?
+Answer: Displays the device’s local IP address on the LCD screen.
+
+How is the LED pin configured in setup()?
+Answer: pinMode(LED_PIN, OUTPUT)
+
+What happens when /buzzer/1 is accessed?
+Answer: The buzzer is turned on (digitalWrite(BUZZER_PIN, HIGH)).
+
+
+------------------------------------------------------------------------------------------------------------
+
+
+Lab 2: BLE (Bluetooth Low Energy)
+Multiple Choice:
+8. Which UUID is used for the LED state characteristic in the BLE server?
+a) SERVICE_UUID
+b) TEMPERATURE_CHARACTERISTIC_UUID
+c) LED_STATE_CHARACTERISTIC_UUID
+d) VOLTAGE_CHARACTERISTIC_UUID
+Answer: c) LED_STATE_CHARACTERISTIC_UUID
+
+What happens when Button A is pressed on the BLE Client device?
+a) It reads the LED state from the Server.
+b) It toggles its own LED.
+c) It disconnects from the Server.
+d) It sends a write request to the Server.
+Answer: a) It reads the LED state from the Server.
+
+Which callback handles incoming BLE messages on the Client?
+a) onWrite
+b) onRead
+c) AdvertisedDeviceCallback
+d) BLEServerCallbacks
+Answer: c) AdvertisedDeviceCallback
+
+True/False:
+11. BLE uses the 5 GHz frequency band for communication.
+Answer: False (2.4 GHz)
+
+The BLE Server advertises itself with the name "THANOS" by default.
+Answer: True
+
+Short Answer:
+13. What is the purpose of client.publish("nodeA_to_nodeB_led", "TOGGLE") in the MQTT lab?
+Answer: It sends a "TOGGLE" command to the topic nodeA_to_nodeB_led to control Node B’s LED.
+
+Why is BLEDevice::init() called in the BLE Server setup?
+Answer: To initialize the BLE stack and prepare the device for BLE operations.
+
+
+
+Lab 2: BLE (New Questions)
+What is the default name of the BLE Server advertised to clients?
+Answer: "THANOS"
+
+Which function handles LED state changes when the Client writes to the characteristic?
+Answer: LEDStateCallback::onWrite()
+
+Why is BLEDevice::startAdvertising() called in the Server code?
+Answer: To make the Server discoverable by Clients.
+
+What does BLERemoteCharacteristic::readValue() do on the Client?
+Answer: Reads the current value of a BLE characteristic from the Server.
+
+How does the Client identify the correct Server to connect to?
+Answer: By matching the advertised device name ("THANOS").
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------
+
+
+Lab 3: LoRa Peer-to-Peer
+Multiple Choice:
+15. What frequency does the LoRa module use in the lab?
+a) 433 MHz
+b) 868 MHz
+c) 900 MHz
+d) 2.4 GHz
+Answer: c) 900 MHz
+
+Which library is used for LoRa communication?
+a) LoRa.h
+b) RadioHead
+c) painlessMesh
+d) WiFi.h
+Answer: b) RadioHead
+
+What is the purpose of rf95.send() in the transmitter code?
+a) To receive a message.
+b) To broadcast a LoRa packet.
+c) To connect to WiFi.
+d) To calculate checksums.
+Answer: b) To broadcast a LoRa packet.
+
+True/False:
+18. LoRa is suitable for real-time video streaming due to its high bandwidth.
+Answer: False (LoRa is low-bandwidth)
+
+The receiver node prints incoming data to the serial monitor at 9600 baud.
+Answer: True
+
+Short Answer:
+20. What does the calculateChecksum function ensure in the LoRa code?
+Answer: It validates message integrity by summing payload bytes.
+
+Lab 3: LoRa (New Questions)
+What is the purpose of rf95.setTxPower(13, false)?
+Answer: Sets LoRa transmission power to 13 dBm (adjustable for range).
+
+Which pins are used for CS, RST, and INT on the LoRa shield?
+Answer: CS=10, RST=9, INT=2 (defined as RFM95_CS, RFM95_RST, RFM95_INT)
+
+What does rf95.waitPacketSent() ensure?
+Answer: Blocks until the LoRa packet is fully transmitted.
+
+How is the LoRa receiver code synchronized with the transmitter?
+Answer: Both use the same frequency (RF95_FREQ = 900.0).
+
+What is the checksum used for in LoRa messages?
+Answer: To detect data corruption during transmission.
+
+------------------------------------------------------------------------------------------------------------
+Lab 4: MQTT
+Multiple Choice:
+21. Which port does the MQTT broker typically use?
+a) 80
+b) 1883
+c) 443
+d) 8883
+Answer: b) 1883
+
+What command starts an MQTT subscriber on a PC?
+a) mosquitto_pub
+b) mosquitto_sub
+c) mqtt_listen
+d) mqtt_start
+Answer: b) mosquitto_sub
+
+True/False:
+23. MQTT topics are case-sensitive.
+Answer: True
+
+The MSStickC can only act as an MQTT publisher, not a subscriber.
+Answer: False
+
+Short Answer:
+25. Why is client.loop() called in the MQTT code?
+Answer: To maintain the connection and process incoming messages.
+
+
+Lab 4: MQTT (New Questions)
+What is the purpose of client.setCallback() in the MQTT code?
+Answer: Assigns a function to handle incoming MQTT messages.
+
+Which topic does Node A subscribe to for LED control?
+Answer: "nodeB_to_nodeA_led"
+
+How is message deluge prevented when a button is pressed?
+Answer: A delay(500) debounce is added after button press detection.
+
+What happens if the MQTT broker IP is incorrect?
+Answer: The client fails to connect (reconnect() loops indefinitely).
+
+Why is WiFi.mode(WIFI_STA) used in the MQTT setup?
+Answer: Sets the WiFi mode to station (client), not access point.
+
+
+------------------------------------------------------------------------------------------------------------
+Lab 5: LoRaWAN
+Multiple Choice:
+26. What is the role of the LoRaWAN Network Server (LNS)?
+a) To broadcast messages to all gateways.
+b) To decrypt and forward payloads to the application server.
+c) To replace the need for gateways.
+d) To act as a sensor.
+Answer: b) To decrypt and forward payloads to the application server.
+
+Which activation method is used in the lab?
+a) ABP
+b) OTAA
+c) DHCP
+d) Static
+Answer: b) OTAA
+
+Short Answer:
+28. What are the three critical keys needed for OTAA activation?
+Answer: DevEUI, AppEUI, and AppKey.
+
+
+Lab 5: LoRaWAN (New Questions)
+What is the frequency plan used for Australia in the lab?
+Answer: AU_915_928_FSB_2
+
+Which library is used for LoRaWAN compliance?
+Answer: MCCI LoRaWAN LMIC
+
+What is the purpose of CFG_au915 in lmic_project_config.h?
+Answer: Enables Australia-specific LoRaWAN frequency settings.
+
+How is the OTAA activation process initiated?
+Answer: The device sends a join request with DevEUI, AppEUI, and AppKey.
+
+What does the TTN Console display when an end device successfully joins?
+Answer: Uplink/downlink counters and signal strength metrics.
+
+------------------------------------------------------------------------------------------------------------
+Lab 6: Mesh Networks
+Multiple Choice:
+29. Which library is used to create the mesh network?
+a) ESP-NOW
+b) painlessMesh
+c) LoRaMesh
+d) WiFiMesh
+Answer: b) painlessMesh
+
+What is the default mesh network password in the lab?
+a) meshpassword
+b) meshpolitons
+c) 12345678
+d) rakwireless
+Answer: b) meshpolitons
+
+Lab 6: Mesh Networks (New Questions)
+What is the default SSID for the mesh network?
+Answer: "buluhini"
+
+Which task blinks the LED when no nodes are connected?
+Answer: blinkNoNodes
+
+How are high-priority messages processed first?
+Answer: The message queue is sorted by priority (messageQueue.sort()).
+
+What does mesh.update() do in the main loop?
+Answer: Handles network maintenance and message routing.
+
+How does a node join an existing mesh network?
+Answer: By connecting to the same SSID/password as other nodes.
+
+Short Answer:
+31. How does the mesh network handle message prioritization?
+Answer: Messages are sorted by priority (High/Medium/Low) in a queue.
+
+Bonus: Debugging/Code Analysis
+What error occurs if digitalWrite(LED_PIN, HIGH) turns the LED ON?
+Answer: The LED circuit is active-low (LOW = ON, HIGH = OFF).
+
+Why does the BLE Server use notify() for characteristics?
+Answer: To push updates to subscribed clients without polling
+
+
+------------------------------------------------------------------------------------------------------------
+CROSS LAB????
+Cross-Lab Questions
+Which protocol (REST/BLE/LoRa/MQTT) is best for low-power, long-range communication?
+Answer: LoRa/LoRaWAN
+
+What is a common vulnerability in the MQTT lab if allow_anonymous true is set?
+Answer: Unauthorized devices can publish/subscribe to topics.
+
+Why does BLE use UUIDs instead of plain text for characteristics?
+Answer: UUIDs standardize services/characteristics across devices.
+
+Which lab requires a gateway to connect to The Things Network?
+Answer: Lab 5 (LoRaWAN)
+
+What is the key difference between LoRa and LoRaWAN?
+Answer: LoRa is the physical layer; LoRaWAN adds network protocols.
+
+
+
+------------------------------------------------------------------------------------------------------------
+
+DEBUGGIN 
+Debugging/Code Analysis (New Questions)
+What happens if M5.begin() is omitted in the REST API lab?
+Answer: Sensors/LCD won’t initialize, causing crashes or silent failures.
+
+Why does the BLE Server disconnect after one client?
+Answer: Missing startAdvertising() in onDisconnect callback.
+
+What causes LoRa initialization failed! on the serial monitor?
+Answer: Incorrect SPI pins or faulty LoRa module connection.
+
+How would you fix MQTT messages not arriving on the MSStickC?
+Answer: Verify broker IP, topic names, and WiFi connectivity.
+
+Why might a mesh node fail to send messages?
+Answer: Network password mismatch or out of range of other nodes.
+
+
+
+------------------------------------------------------------------------------------------------------------
+Advanced Scenarios
+How would you add HTTPS to the REST API in Lab 1?
+Answer: Use ESP8266WebServerSecure or reverse proxy (beyond lab scope).
+
+What change is needed to make BLE Client auto-reconnect to the Server?
+Answer: Implement a loop to call connectToServer() on disconnect.
+
+How could you optimize LoRa for battery-powered devices?
+Answer: Reduce TxPower and increase sleep intervals.
+
+What is the risk of hardcoding WiFi credentials in the MQTT lab?
+Answer: Security breach if code is shared/exposed.
+
+How would you extend the mesh lab to support 100+ nodes?
+Answer: Use hierarchical routing or limit broadcast traffic.
+
+
+
+------------------------------------------------------------------------------------------------------------
+Theory/Concept Questions
+Why is REST considered "stateless"?
+Answer: Each request contains all needed info; no server-side session storage.
+
+What is the advantage of BLE over classic Bluetooth in IoT?
+Answer: Lower power consumption for intermittent data transfers.
+
+Why does LoRa use spread spectrum modulation?
+Answer: Increases range and noise immunity at low power.
+
+How does MQTT’s "last will and testament" (LWT) feature work?
+Answer: Broker sends a predefined message if client disconnects abruptly.
+
+What is the role of ACKs in mesh networks?
+Answer: Confirm message delivery and trigger retries if needed.
+

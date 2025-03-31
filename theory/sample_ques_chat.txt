@@ -1,0 +1,115 @@
+IoT Lab Quiz
+
+Multiple Choice Questions (MCQ)
+
+What does MQTT stand for?
+a) Message Queue Telemetry Transferb) Message Query Transport Technologyc) Messaging Queue Transfer Technologyd) Machine Query Transmission TechniqueAnswer: a) Message Queue Telemetry Transfer
+
+Which protocol is commonly used for IoT communication?
+a) HTTPb) MQTTc) FTPd) TCPAnswer: b) MQTT
+
+What is the default port for MQTT over TCP?
+a) 80b) 1883c) 443d) 8080Answer: b) 1883
+
+What does LoRa stand for?
+a) Long Rangeb) Local Rangec) Low Resistanced) Lossy RadioAnswer: a) Long Range
+
+What is the primary function of an MQTT broker?
+a) Storing IoT data permanentlyb) Managing the network connectionc) Receiving and forwarding messages between clientsd) Encrypting IoT messagesAnswer: c) Receiving and forwarding messages between clients
+
+Which layer of the OSI model does MQTT operate on?
+a) Applicationb) Transportc) Networkd) Data LinkAnswer: a) Application
+
+Which of the following is NOT a characteristic of IoT?
+a) Interconnectivityb) Autonomous controlc) High power consumptiond) Real-time analyticsAnswer: c) High power consumption
+
+What type of network topology does LoRaWAN follow?
+a) Meshb) Starc) Ringd) BusAnswer: b) Star
+
+Multi-Select Questions
+9. Which of the following are components of an MQTT architecture? (Select all that apply)
+
+a) Broker
+
+b) Publisher
+
+c) Client
+
+d) FirewallAnswer: a) Broker, b) Publisher, c) Client
+
+What are some advantages of using LoRa in IoT applications? (Select all that apply)
+
+a) Long-range communication
+
+b) Low power consumption
+
+c) High-speed data transfer
+
+d) Works well in dense urban environmentsAnswer: a) Long-range communication, b) Low power consumption, d) Works well in dense urban environments
+
+Which of the following are key features of IoT devices? (Select all that apply)
+
+a) Internet connectivity
+
+b) Local storage only
+
+c) Sensor integration
+
+d) Manual operation onlyAnswer: a) Internet connectivity, c) Sensor integration
+
+Short Answer Questions
+12. Explain how an MQTT broker manages communication between clients.
+Answer: An MQTT broker receives messages from publishers and forwards them to subscribers based on topics. It ensures efficient message delivery with low bandwidth requirements.
+
+What role does LoRaWAN play in IoT communication?
+Answer: LoRaWAN is a network protocol that enables long-range, low-power communication for IoT devices using LoRa technology.
+
+Describe the difference between MQTT and HTTP in terms of IoT communication.
+Answer: MQTT is lightweight and optimized for low-bandwidth, real-time communication, while HTTP is heavier and typically used for web-based applications.
+
+How does an Arduino Uno interact with sensors in an IoT system?
+Answer: The Arduino Uno reads data from sensors via its GPIO pins and processes or transmits the data over serial or network communication protocols.
+
+Why is low power consumption important for IoT devices?
+Answer: IoT devices are often deployed in remote locations and rely on batteries, making power efficiency critical for long-term operation.
+
+What is the main purpose of an actuator in an IoT system?
+Answer: Actuators perform actions based on signals received from IoT devices, such as turning on a motor or opening a valve.
+
+How does a publish-subscribe model differ from a client-server model?
+Answer: The publish-subscribe model allows multiple devices to receive messages based on topics, while a client-server model requires direct communication between two entities.
+
+What is the function of an IoT gateway?
+Answer: An IoT gateway connects IoT devices to the cloud by managing data transmission, security, and protocol translation.
+
+Fill in the Blanks
+20. MQTT follows a _______ and _______ model for message communication.
+Answer: Publish, Subscribe
+
+LoRa operates in the _______ band, allowing long-range wireless communication.
+Answer: Sub-GHz
+
+The protocol used in MQTT for secure communication is _______.
+Answer: SSL/TLS
+
+An IoT system typically consists of _______, _______, and _______ components.
+Answer: Sensors, actuators, network
+
+The default quality of service (QoS) level for MQTT messages is _______.
+Answer: 0 (At most once)
+
+The device that aggregates and processes sensor data before sending it to the cloud is called a _______.
+Answer: Gateway
+
+IoT devices often use _______ to conserve power and extend battery life.
+Answer: Low-power communication protocols
+
+The process of sending sensor data to the cloud at set intervals is called _______.
+Answer: Data sampling
+
+A common cloud platform used for IoT applications is _______.
+Answer: AWS IoT / Google Cloud IoT
+
+The protocol often used alongside MQTT to ensure secure data exchange is _______.
+Answer: TLS (Transport Layer Security)
+
